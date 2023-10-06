@@ -1,0 +1,25 @@
+# dependency directories
+node_modules/
+
+# environment variables
+.env
+
+# logs
+logs/
+*.log
+
+# debugging
+npm-debug.log*
+
+# editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# os generated files
+.DS_Store
+Thumbs.db
