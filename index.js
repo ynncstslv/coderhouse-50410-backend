@@ -1,30 +1,54 @@
+const fs = require('fs');
+
 class ProductManager {
-	constructor() {
+	constructor(filePath) {
+		this.path = filePath;
 		this.products = [];
-		this.nextId = 1;
+		this.loadProducts();
+	}
+
+	loadProducts() {
+		try {
+			const data = fs.readFileSync(this.path, 'utf8');
+
+			this.products = JSON.parse(data);
+
+			if (!Array.isArray(this.products)) {
+				this.products = [];
+			}
+		} catch (error) {
+			this.products = [];
+		}
+	}
+
+	saveProducts() {
+		const data = JSON.stringify(this.products, null, 2);
+
+		fs.writeFileSync(this.path, data);
 	}
 
 	addProduct(title, description, price, thumbnail, code, stock) {
 		const existingProduct = this.products.find(
-			(product) => product.code === code
+			(product) => this.products.code === code
 		);
 
-		// verify if the code already exists
 		if (existingProduct) {
 			console.error('[-] a product with this code already exists [-]');
-
-			return;
 		}
 
-		// verify if all required fields are there
-		if (!title || !description || !price || !thumbnail || !code || !stock) {
+		if (
+			!title ||
+			!description ||
+			!price ||
+			!thumbnail ||
+			!code ||
+			stock === undefined
+		) {
 			console.error('[-] all fields are required [-]');
-
-			return;
 		}
 
 		const product = {
-			id: this.nextId++,
+			id: this.nextId(),
 			title,
 			description,
 			price,
@@ -34,12 +58,25 @@ class ProductManager {
 		};
 
 		this.products.push(product);
+		this.saveProducts();
+	}
+
+	nextId() {
+		const maxId = this.products.reduce(
+			(max, product) => (product.id > max ? product.id : max),
+			0
+		);
+
+		return maxId + 1;
+	}
+
+	getProducts() {
+		return this.products;
 	}
 
 	getProductById(id) {
 		const product = this.products.find((product) => product.id === id);
 
-		// verify if there is a product
 		if (!product) {
 			console.error('[-] product not found [-]');
 
@@ -48,11 +85,46 @@ class ProductManager {
 
 		return product;
 	}
+
+	updateProduct(id, updatedFields) {
+		const productIndex = this.products.findIndex(
+			(product) => product.id === id
+		);
+
+		if (productIndex === -1) {
+			console.error('[-] product not found [-]');
+
+			return;
+		}
+
+		this.products[productIndex] = {
+			...this.products[productIndex],
+			...updatedFields,
+			id,
+		};
+
+		this.saveProducts();
+	}
+
+	deleteProduct(id) {
+		const productIndex = this.products.findIndex(
+			(product) => product.id === id
+		);
+
+		if (productIndex === -1) {
+			console.error('[-] product not found [-]');
+
+			return;
+		}
+
+		this.products.splice(productIndex, 1);
+		this.saveProducts();
+	}
 }
 
 // -------------------------------- sample case:
 
-const productManager = new ProductManager();
+const productManager = new ProductManager('products.json');
 
 productManager.addProduct(
 	'Product 1',
@@ -71,7 +143,17 @@ productManager.addProduct(
 	15
 );
 
-const foundProduct = productManager.getProductById(1);
-console.log(foundProduct);
+const allProducts = productManager.getProducts();
+console.log(`Products: ${allProducts}`);
 
-const nonExistentProduct = productManager.getProductById(3);
+const foundProduct = productManager.getProductById(1);
+console.log(`Product Found by ID: ${foundProduct}`);
+
+productManager.updateProduct(1, { price: 24.99, stock: 12 });
+console.log(`Updated Product: ${productManager.getProductById(1)}`);
+
+productManager.deleteProduct(2);
+console.log('The product with ID 2 was successfully deleted!');
+
+const updatedProducts = productManager.getProducts();
+console.log('Produtos atualizados:', updatedProducts);
