@@ -1,26 +1,26 @@
 {
-  "name": "coderhouse-50410-backend",
-  "version": "1.0.0",
-  "description": "[![GitHub issues](https://img.shields.io/github/issues/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/issues) [![GitHub stars](https://img.shields.io/github/stars/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/stargazers) [![GitHub license](https://img.shields.io/github/license/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/blob/main/LICENSE)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ynncstslv/coderhouse-50410-backend.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ynncstslv/coderhouse-50410-backend/issues"
-  },
-  "homepage": "https://github.com/ynncstslv/coderhouse-50410-backend#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mongoose": "^7.5.4"
-  }
+	"name": "coderhouse-50410-backend",
+	"version": "1.0.0",
+	"description": "[![GitHub issues](https://img.shields.io/github/issues/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/issues) [![GitHub stars](https://img.shields.io/github/stars/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/stargazers) [![GitHub license](https://img.shields.io/github/license/ynncstslv/coderhouse-50410-backend)](https://github.com/ynncstslv/coderhouse-50410-backend/blob/main/LICENSE)",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ynncstslv/coderhouse-50410-backend.git"
+	},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ynncstslv/coderhouse-50410-backend/issues"
+	},
+	"homepage": "https://github.com/ynncstslv/coderhouse-50410-backend#readme",
+	"dependencies": {
+		"bcrypt": "^5.1.1",
+		"body-parser": "^1.20.2",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"mongoose": "^7.5.4"
+	},
+	"type": "module"
 }
