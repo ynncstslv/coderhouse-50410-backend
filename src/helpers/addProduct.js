@@ -8,7 +8,9 @@ export function addProductHelper(
 	stock,
 	status
 ) {
+	const id = productManager.nextId();
 	const product = {
+		id,
 		title,
 		description,
 		price,
