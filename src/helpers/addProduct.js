@@ -5,7 +5,8 @@ export function addProductHelper(
 	price,
 	thumbnail,
 	code,
-	stock
+	stock,
+	status
 ) {
 	const product = {
 		title,
@@ -14,6 +15,7 @@ export function addProductHelper(
 		thumbnail,
 		code,
 		stock,
+		status,
 	};
 
 	productManager.addProduct(product);

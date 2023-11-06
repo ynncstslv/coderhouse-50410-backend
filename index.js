@@ -1,8 +1,8 @@
 import express from 'express';
 
-import middleware from './middlewares/middleware.js';
-import config from './config/config.js';
-import productsRoutes from './routes/productsRoutes.js';
+import middleware from './src/middlewares/middleware.js';
+import config from './src/config/config.js';
+import productsRoutes from './src/routes/productsRoutes.js';
 
 const app = express();
 const port = config.port;

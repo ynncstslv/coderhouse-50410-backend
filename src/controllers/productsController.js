@@ -29,17 +29,18 @@ export const getProductById = (req, res) => {
 };
 
 export const addProductController = (req, res) => {
-	const { title, description, price, thumbnail, code, stock } = req.body;
+	const { title, description, price, thumbnail, code, stock, status } =
+		req.body;
 
 	if (
 		!title ||
 		!description ||
 		!price ||
-		!thumbnail ||
 		!code ||
-		stock === undefined
+		stock === undefined ||
+		!status
 	) {
-		return res.status(400).json({ error: '[-] all fields are required [-]' });
+		return res.status(400).json({ error: '[-] fields are required [-]' });
 	}
 
 	const existingProduct = productManager
@@ -60,7 +61,8 @@ export const addProductController = (req, res) => {
 			price,
 			thumbnail,
 			code,
-			stock
+			stock,
+			status
 		);
 
 		res.status(201).json({ message: '[+] product added successfully [+]' });
