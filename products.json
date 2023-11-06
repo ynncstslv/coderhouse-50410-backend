@@ -1,38 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Product 1",
-    "description": "Product 1 Description",
-    "price": 24.99,
-    "thumbnail": "thumb1.jpg",
+    "title": "Produto 1",
+    "description": "Descrição do Produto 1",
+    "price": 19.99,
+    "thumbnail": "produto1.jpg",
     "code": "P1",
-    "stock": 12
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Produto 2",
+    "description": "Descrição do Produto 2",
+    "price": 29.99,
+    "thumbnail": "produto2.jpg",
+    "code": "P2",
+    "stock": 1,
+    "status": true
   },
   {
     "id": 3,
-    "title": "Product 2",
-    "description": "Product 2 Description",
-    "price": 29.99,
-    "thumbnail": "thumb2.jpg",
-    "code": "P2",
-    "stock": 15
-  },
-  {
-    "id": 4,
-    "title": "Product 1",
-    "description": "Product 1 Description",
-    "price": 19.99,
-    "thumbnail": "thumb1.jpg",
-    "code": "P1",
-    "stock": 10
-  },
-  {
-    "id": 5,
-    "title": "Product 2",
-    "description": "Product 2 Description",
-    "price": 29.99,
-    "thumbnail": "thumb2.jpg",
-    "code": "P2",
-    "stock": 15
+    "title": "Produto 3",
+    "description": "Descrição do Produto 3",
+    "price": 11.99,
+    "thumbnail": "produto3.jpg",
+    "code": "P3",
+    "stock": 11,
+    "status": true
   }
 ]
