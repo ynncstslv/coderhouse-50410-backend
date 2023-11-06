@@ -37,7 +37,7 @@ export default class ProductManager {
 			(max, product) => (product.id > max ? product.id : max),
 			0
 		);
-		return maxId + 1;
+		return this.products.length > 0 ? maxId + 1 : 1;
 	}
 
 	getProducts(limit) {
