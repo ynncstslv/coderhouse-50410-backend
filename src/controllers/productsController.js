@@ -4,7 +4,8 @@ import { addProductHelper } from '../helpers/addProduct.js';
 import { updateProductHelper } from '../helpers/updateProduct.js';
 import { deleteProductHelper } from '../helpers/deleteProduct.js';
 
-const productManager = new ProductManager('products.json');
+const productFilePath = 'products.json';
+const productManager = new ProductManager(productFilePath);
 
 export const getProducts = (req, res) => {
 	const limit = parseInt(req.query.limit);
